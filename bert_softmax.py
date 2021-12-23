@@ -26,14 +26,3 @@ class BertSoftmax(nn.Module):
         return out
 
 
-if __name__ == '__main__':
-    dataset = InAnaDataset("./data/train.json", label2idx_path="./data/label2idx.json", max_len=256)
-    bert = BertSoftmax(hidden_size=768, class_num=13)
-    bert(dataset.input_ids[:5], dataset.token_type_ids[:5], dataset.attention_mask[:5])
-
-
-
-
-
-
-
