@@ -50,7 +50,7 @@ class BertRelCls(nn.Module):
 
         # 将实体所在向量求均值
         entity_1_mean = torch.sum(hiddens * entity_1_mask, dim=1) / entity_1_len
-        entity_2_mean = torch.sum(hiddens * entity_2_mask, dim=2) / entity_2_len
+        entity_2_mean = torch.sum(hiddens * entity_2_mask, dim=1) / entity_2_len
 
         # 实体均值向量，激活+Fc
         entity_1_mean = self.fc2(F.tanh(entity_1_mean))
